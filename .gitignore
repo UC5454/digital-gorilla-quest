@@ -1,0 +1,25 @@
+# 個人の進捗データ（プレイヤーごとに異なる）
+gorilla_data/progress.json
+
+# 個人設定
+CLAUDE.local.md
+
+# 練習で作成したファイル
+practice/boss-challenge/*
+!practice/boss-challenge/README.md
+practice/skill-dojo/*
+!practice/skill-dojo/README.md
+!practice/skill-dojo/.claude/
+practice/hook-cave/*
+!practice/hook-cave/README.md
+!practice/hook-cave/.claude/
+practice/memory-tree/*
+!practice/memory-tree/README.md
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/

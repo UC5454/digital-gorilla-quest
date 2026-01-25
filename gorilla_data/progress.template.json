@@ -1,0 +1,250 @@
+{
+  "player": {
+    "name": "見習いゴリラ",
+    "title": "子ゴリラ",
+    "power_level": 1,
+    "banana_points": 0,
+    "current_area": "grassland",
+    "created_at": null,
+    "last_played": null
+  },
+  "quests": {
+    "completed": [],
+    "current": null,
+    "hint_count": 0
+  },
+  "bosses": {
+    "defeated": []
+  },
+  "badges": [],
+  "areas": {
+    "grassland": {
+      "name": "草原エリア",
+      "unlocked": true,
+      "boss_available": false,
+      "boss_defeated": false,
+      "quests_total": 7,
+      "quests_completed": 0,
+      "quest_range": ["1", "1.5", "2", "3", "4", "5", "6"],
+      "boss_id": "gatekeeper"
+    },
+    "forest": {
+      "name": "森林エリア",
+      "unlocked": false,
+      "boss_available": false,
+      "boss_defeated": false,
+      "quests_total": 6,
+      "quests_completed": 0,
+      "quest_range": ["7", "8", "9", "10", "11", "12"],
+      "boss_id": "sage"
+    },
+    "mountain": {
+      "name": "山岳エリア",
+      "unlocked": false,
+      "boss_available": false,
+      "boss_defeated": false,
+      "quests_total": 6,
+      "quests_completed": 0,
+      "quest_range": ["13", "14", "15", "16", "17", "18"],
+      "boss_id": "warrior"
+    },
+    "cave": {
+      "name": "洞窟エリア",
+      "unlocked": false,
+      "boss_available": false,
+      "boss_defeated": false,
+      "quests_total": 6,
+      "quests_completed": 0,
+      "quest_range": ["19", "20", "21", "22", "23", "24"],
+      "boss_id": "mage"
+    },
+    "summit": {
+      "name": "頂上エリア",
+      "unlocked": false,
+      "boss_available": false,
+      "boss_defeated": false,
+      "quests_total": 6,
+      "quests_completed": 0,
+      "quest_range": ["25", "26", "27", "28", "29", "30"],
+      "boss_id": "kingkong"
+    }
+  },
+  "level_thresholds": {
+    "2": 100,
+    "3": 220,
+    "4": 360,
+    "5": 520,
+    "6": 700,
+    "7": 900,
+    "8": 1120,
+    "9": 1360,
+    "10": 1620,
+    "11": 1900,
+    "12": 2200,
+    "13": 2520,
+    "14": 2860,
+    "15": 3220,
+    "16": 3600,
+    "17": 4000,
+    "18": 4420,
+    "19": 4860,
+    "20": 5320,
+    "21": 5800,
+    "22": 6300,
+    "23": 6820,
+    "24": 7360,
+    "25": 7920,
+    "26": 8500,
+    "27": 9100,
+    "28": 9720,
+    "29": 10360,
+    "30": 11020,
+    "31": 11700,
+    "32": 12400,
+    "33": 13120,
+    "34": 13860,
+    "35": 14620,
+    "36": 15400,
+    "37": 16200,
+    "38": 17020,
+    "39": 17860,
+    "40": 18720,
+    "41": 19600,
+    "42": 20500,
+    "43": 21420,
+    "44": 22360,
+    "45": 23320,
+    "46": 24300,
+    "47": 25300,
+    "48": 26320,
+    "49": 27360,
+    "50": 28420
+  },
+  "title_levels": {
+    "子ゴリラ": [1, 5],
+    "若ゴリラ": [6, 15],
+    "成熟ゴリラ": [16, 25],
+    "ブラックバック": [26, 35],
+    "シルバーバック": [36, 45],
+    "ジャングルの王": [46, 50]
+  },
+  "badges_definition": {
+    "first_step": {
+      "id": "first_step",
+      "name": "第一歩",
+      "icon": "🥇",
+      "description": "最初のクエストをクリアした証",
+      "condition": "Q1クリア"
+    },
+    "grassland_master": {
+      "id": "grassland_master",
+      "name": "草原の覇者",
+      "icon": "🏔️",
+      "description": "草原エリアを制覇した証",
+      "condition": "草原ボス撃破"
+    },
+    "forest_master": {
+      "id": "forest_master",
+      "name": "森の支配者",
+      "icon": "🌲",
+      "description": "森林エリアを制覇した証",
+      "condition": "森林ボス撃破"
+    },
+    "mountain_master": {
+      "id": "mountain_master",
+      "name": "山の王者",
+      "icon": "⛰️",
+      "description": "山岳エリアを制覇した証",
+      "condition": "山岳ボス撃破"
+    },
+    "cave_master": {
+      "id": "cave_master",
+      "name": "洞窟の主",
+      "icon": "🕳️",
+      "description": "洞窟エリアを制覇した証",
+      "condition": "洞窟ボス撃破"
+    },
+    "jungle_king": {
+      "id": "jungle_king",
+      "name": "ジャングルの王",
+      "icon": "👑",
+      "description": "全エリアを制覇した伝説の証",
+      "condition": "全ボス撃破"
+    },
+    "cli_user": {
+      "id": "cli_user",
+      "name": "CLI使い",
+      "icon": "💪",
+      "description": "基本的なCLI操作を習得した証",
+      "condition": "Q6クリア"
+    },
+    "memory_keeper": {
+      "id": "memory_keeper",
+      "name": "記憶の番人",
+      "icon": "🧠",
+      "description": "CLAUDE.mdを完全に習得した証",
+      "condition": "Q12クリア"
+    },
+    "skill_master": {
+      "id": "skill_master",
+      "name": "技の達人",
+      "icon": "🥋",
+      "description": "スキル作成を完全に習得した証",
+      "condition": "Q18クリア"
+    },
+    "chain_mage": {
+      "id": "chain_mage",
+      "name": "連鎖の魔術師",
+      "icon": "🔗",
+      "description": "Hooksを完全に習得した証",
+      "condition": "Q24クリア"
+    },
+    "legendary_gorilla": {
+      "id": "legendary_gorilla",
+      "name": "伝説のゴリラ",
+      "icon": "🦍",
+      "description": "全スキルを習得した証",
+      "condition": "Q30クリア"
+    }
+  },
+  "quest_file_map": {
+    "1": "grassland/q01_installation.md",
+    "1.5": "grassland/q01-5_api_key.md",
+    "2": "grassland/q02_first_conversation.md",
+    "3": "grassland/q03_file_read.md",
+    "4": "grassland/q04_file_create.md",
+    "5": "grassland/q05_file_edit.md",
+    "6": "grassland/q06_bash_command.md",
+    "7": "forest/q07_claude_md_basics.md",
+    "8": "forest/q08_create_claude_md.md",
+    "9": "forest/q09_local_md.md",
+    "10": "forest/q10_project_rules.md",
+    "11": "forest/q11_command_docs.md",
+    "12": "forest/q12_context_mastery.md",
+    "13": "mountain/q13_skills_intro.md",
+    "14": "mountain/q14_skill_structure.md",
+    "15": "mountain/q15_first_skill.md",
+    "16": "mountain/q16_skill_with_params.md",
+    "17": "mountain/q17_practical_skill.md",
+    "18": "mountain/q18_skill_mastery.md",
+    "19": "cave/q19_hooks_intro.md",
+    "20": "cave/q20_settings_json.md",
+    "21": "cave/q21_first_hook.md",
+    "22": "cave/q22_matcher.md",
+    "23": "cave/q23_practical_hooks.md",
+    "24": "cave/q24_hook_mastery.md",
+    "25": "summit/q25_final_climb.md",
+    "26": "summit/q26_prompt_engineering.md",
+    "27": "summit/q27_workflow_integration.md",
+    "28": "summit/q28_security.md",
+    "29": "summit/q29_team_collaboration.md",
+    "30": "summit/q30_final_project.md"
+  },
+  "boss_file_map": {
+    "gatekeeper": "grassland/boss_gatekeeper.md",
+    "sage": "forest/boss_sage.md",
+    "warrior": "mountain/boss_warrior.md",
+    "mage": "cave/boss_mage.md",
+    "kingkong": "summit/boss_kingkong.md"
+  }
+}
