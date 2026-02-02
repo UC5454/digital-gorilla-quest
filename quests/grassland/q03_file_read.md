@@ -15,6 +15,14 @@ Claude Codeの真の力、それはファイルを読む力だ！
 - Claude Codeにファイルを読ませる
 - CLAUDE.mdの内容を確認する
 
+## コピペ
+
+Claude Codeに以下を入力してみよう：
+
+```
+CLAUDE.md を読んで内容を教えて
+```
+
 ## 成功条件
 
 - [ ] Claude Codeを使ってCLAUDE.mdの内容を表示できた
