@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DIGITAL GORILLA QUEST v2.0</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Noto+Sans+JP:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            jungle: { DEFAULT: '#065f46', light: '#0d9668', dark: '#034028' },
+            banana: { DEFAULT: '#f59e0b', light: '#fbbf24', dark: '#d97706' },
+            flame: { DEFAULT: '#dc2626', light: '#ef4444', dark: '#991b1b' },
+            navy: { DEFAULT: '#0f172a', light: '#1e293b', lighter: '#334155' },
+          },
+          fontFamily: {
+            sans: ['Inter', 'Noto Sans JP', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+    @keyframes pulse-glow { 0%, 100% { box-shadow: 0 0 20px rgba(245,158,11,0.3); } 50% { box-shadow: 0 0 40px rgba(245,158,11,0.6); } }
+    @keyframes slide-up { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    .float { animation: float 3s ease-in-out infinite; }
+    .pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
+    .slide-up { animation: slide-up 0.6s ease-out forwards; }
+    .slide-up-delay-1 { animation-delay: 0.1s; opacity: 0; }
+    .slide-up-delay-2 { animation-delay: 0.2s; opacity: 0; }
+    .slide-up-delay-3 { animation-delay: 0.3s; opacity: 0; }
+    .map-card:hover { transform: translateY(-4px) scale(1.02); }
+    .map-card { transition: all 0.3s ease; }
+  </style>
+</head>
+<body class="bg-navy min-h-screen text-slate-100 font-sans">
+
+  <!-- Hero Section -->
+  <header class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-jungle-dark/40 via-navy to-navy"></div>
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute top-10 left-10 w-32 h-32 bg-jungle rounded-full blur-3xl"></div>
+      <div class="absolute top-20 right-20 w-40 h-40 bg-banana rounded-full blur-3xl"></div>
+      <div class="absolute bottom-10 left-1/3 w-36 h-36 bg-flame rounded-full blur-3xl"></div>
+    </div>
+
+    <div class="relative max-w-6xl mx-auto px-4 pt-16 pb-20 text-center">
+      <div class="slide-up">
+        <p class="text-banana font-bold text-sm tracking-[0.3em] uppercase mb-4">Welcome to the Jungle</p>
+        <h1 class="text-5xl md:text-7xl font-black mb-4 bg-gradient-to-r from-banana-light via-banana to-banana-dark bg-clip-text text-transparent drop-shadow-lg">
+          DIGITAL GORILLA<br>QUEST <span class="text-flame">v2.0</span>
+        </h1>
+        <p class="text-xl md:text-2xl text-slate-300 mb-2">Claude Codeを極めて、AI社員を作り出せ!</p>
+        <p class="text-slate-400 mb-10">9つのエリアを攻略し、伝説のキングコングへ進化せよ</p>
+      </div>
+
+      <div class="slide-up slide-up-delay-1">
+        <a href="#map" class="inline-block px-10 py-4 bg-gradient-to-r from-jungle to-jungle-light text-white font-bold text-lg rounded-2xl pulse-glow hover:scale-105 transition-transform">
+          /go で冒険開始!
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Evolution Stages -->
+  <section class="max-w-6xl mx-auto px-4 py-16">
+    <h2 class="text-3xl font-bold text-center mb-2 slide-up">
+      <span class="text-banana">進化の系譜</span>
+    </h2>
+    <p class="text-center text-slate-400 mb-10">クエストをクリアしてバナナパワーを貯め、ゴリラを進化させよう</p>
+
+    <div class="flex overflow-x-auto gap-4 pb-4 snap-x snap-mandatory">
+      <!-- Stage 1 -->
+      <div class="snap-center flex-shrink-0 w-40 text-center">
+        <div class="w-32 h-32 mx-auto mb-3 rounded-2xl bg-navy-light border-2 border-jungle/30 overflow-hidden flex items-center justify-center">
+          <img src="../../gorilla_data/images/evolution/child_gorilla.png" alt="Child Gorilla" class="w-full h-full object-cover">
+        </div>
+        <p class="text-sm font-bold text-jungle-light">Lv.1</p>
+        <p class="text-xs text-slate-300">子ゴリラ</p>
+      </div>
+      <!-- Stage 2 -->
+      <div class="snap-center flex-shrink-0 w-40 text-center">
+        <div class="w-32 h-32 mx-auto mb-3 rounded-2xl bg-navy-light border-2 border-jungle/30 overflow-hidden">
+          <img src="../../gorilla_data/images/evolution/young_gorilla.png" alt="Young Gorilla" class="w-full h-full object-cover">
+        </div>
+        <p class="text-sm font-bold text-jungle-light">Lv.5</p>
+        <p class="text-xs text-slate-300">若ゴリラ</p>
+      </div>
+      <!-- Stage 3 -->
+      <div class="snap-center flex-shrink-0 w-40 text-center">
+        <div class="w-32 h-32 mx-auto mb-3 rounded-2xl bg-navy-light border-2 border-jungle/30 overflow-hidden">
+          <img src="../../gorilla_data/images/evolution/mature_gorilla.png" alt="Mature Gorilla" class="w-full h-full object-cover">
+        </div>
+        <p class="text-sm font-bold text-jungle-light">Lv.10</p>
+        <p class="text-xs text-slate-300">成熟ゴリラ</p>
+      </div>
+      <!-- Stage 4 -->
+      <div class="snap-center flex-shrink-0 w-40 text-center">
+        <div class="w-32 h-32 mx-auto mb-3 rounded-2xl bg-navy-light border-2 border-navy-lighter/50 overflow-hidden">
+          <img src="../../gorilla_data/images/evolution/blackback.png" alt="Blackback" class="w-full h-full object-cover">
+        </div>
+        <p class="text-sm font-bold text-slate-300">Lv.15</p>
+        <p class="text-xs text-slate-300">ブラックバック</p>
+      </div>
+      <!-- Stage 5 -->
+      <div class="snap-center flex-shrink-0 w-40 text-center">
+        <div class="w-32 h-32 mx-auto mb-3 rounded-2xl bg-navy-light border-2 border-slate-400/50 overflow-hidden">
+          <img src="../../gorilla_data/images/evolution/silverback.png" alt="Silverback" class="w-full h-full object-cover">
+        </div>
+        <p class="text-sm font-bold text-slate-300">Lv.20</p>
+        <p class="text-xs text-slate-300">シルバーバック</p>
+      </div>
+      <!-- Stage 6 -->
+      <div class="snap-center flex-shrink-0 w-40 text-center">
+        <div class="w-32 h-32 mx-auto mb-3 rounded-2xl bg-navy-light border-2 border-banana/50 overflow-hidden">
+          <img src="../../gorilla_data/images/evolution/jungle_king.png" alt="Jungle King" class="w-full h-full object-cover">
+        </div>
+        <p class="text-sm font-bold text-banana">Lv.25</p>
+        <p class="text-xs text-slate-300">ジャングルの王</p>
+      </div>
+      <!-- Stage 7 -->
+      <div class="snap-center flex-shrink-0 w-40 text-center">
+        <div class="w-32 h-32 mx-auto mb-3 rounded-2xl bg-navy-light border-2 border-flame/50 overflow-hidden">
+          <img src="../../gorilla_data/images/evolution/legendary_kingkong.png" alt="Legendary King Kong" class="w-full h-full object-cover">
+        </div>
+        <p class="text-sm font-bold text-flame">Lv.MAX</p>
+        <p class="text-xs text-slate-300">伝説のキングコング</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Area Map -->
+  <section id="map" class="max-w-6xl mx-auto px-4 py-16">
+    <h2 class="text-3xl font-bold text-center mb-2">
+      <span class="text-banana">冒険マップ</span>
+    </h2>
+    <p class="text-center text-slate-400 mb-10">9つのエリアを順に攻略せよ</p>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Area 1 -->
+      <div class="map-card rounded-2xl bg-gradient-to-br from-green-900/60 to-navy-light p-6 border border-green-700/30 cursor-pointer">
+        <div class="flex items-center gap-3 mb-3">
+          <span class="text-3xl">🌿</span>
+          <div>
+            <p class="text-xs text-green-400 font-bold">AREA 1</p>
+            <h3 class="font-bold text-lg">草原エリア</h3>
+          </div>
+        </div>
+        <p class="text-sm text-slate-400">Claude Codeの基本操作</p>
+        <div class="mt-3 flex items-center gap-2">
+          <div class="h-2 flex-1 bg-navy rounded-full overflow-hidden"><div class="h-full w-0 bg-green-500 rounded-full"></div></div>
+          <span class="text-xs text-slate-500">0/5</span>
+        </div>
+      </div>
+
+      <!-- Area 2 -->
+      <div class="map-card rounded-2xl bg-gradient-to-br from-emerald-900/60 to-navy-light p-6 border border-emerald-700/30 cursor-pointer">
+        <div class="flex items-center gap-3 mb-3">
+          <span class="text-3xl">🌲</span>
+          <div>
+            <p class="text-xs text-emerald-400 font-bold">AREA 2</p>
+            <h3 class="font-bold text-lg">森林エリア</h3>
+          </div>
+        </div>
+        <p class="text-sm text-slate-400">ファイル操作・Git管理</p>
+        <div class="mt-3 flex items-center gap-2">
+          <div class="h-2 flex-1 bg-navy rounded-full overflow-hidden"><div class="h-full w-0 bg-emerald-500 rounded-full"></div></div>
+          <span class="text-xs text-slate-500">0/5</span>
+        </div>
+      </div>
+
+      <!-- Area 3 -->
+      <div class="map-card rounded-2xl bg-gradient-to-br from-stone-800/60 to-navy-light p-6 border border-stone-600/30 cursor-pointer">
+        <div class="flex items-center gap-3 mb-3">
+          <span class="text-3xl">🏔️</span>
+          <div>
+            <p class="text-xs text-stone-400 font-bold">AREA 3</p>
+            <h3 class="font-bold text-lg">山岳エリア</h3>
+          </div>
+        </div>
+        <p class="text-sm text-slate-400">開発環境・デバッグ</p>
+        <div class="mt-3 flex items-center gap-2">
+          <div class="h-2 flex-1 bg-navy rounded-full overflow-hidden"><div class="h-full w-0 bg-stone-500 rounded-full"></div></div>
+          <span class="text-xs text-slate-500">0/5</span>
+        </div>
+      </div>
+
+      <!-- Area 4 -->
+      <div class="map-card rounded-2xl bg-gradient-to-br from-indigo-900/60 to-navy-light p-6 border border-indigo-700/30 cursor-pointer">
+        <div class="flex items-center gap-3 mb-3">
+          <span class="text-3xl">🕳️</span>
+          <div>
+            <p class="text-xs text-indigo-400 font-bold">AREA 4</p>
+            <h3 class="font-bold text-lg">洞窟エリア</h3>
+          </div>
+        </div>
+        <p class="text-sm text-slate-400">MCP・外部ツール連携</p>
+        <div class="mt-3 flex items-center gap-2">
+          <div class="h-2 flex-1 bg-navy rounded-full overflow-hidden"><div class="h-full w-0 bg-indigo-500 rounded-full"></div></div>
+          <span class="text-xs text-slate-500">0/5</span>
+        </div>
+      </div>
+
+      <!-- Area 5 -->
+      <div class="map-card rounded-2xl bg-gradient-to-br from-amber-900/60 to-navy-light p-6 border border-amber-700/30 cursor-pointer">
+        <div class="flex items-center gap-3 mb-3">
+          <span class="text-3xl">🏛️</span>
+          <div>
+            <p class="text-xs text-amber-400 font-bold">AREA 5</p>
+            <h3 class="font-bold text-lg">神殿エリア</h3>
+          </div>
+        </div>
+        <p class="text-sm text-slate-400">CLAUDE.md設計</p>
+        <div class="mt-3 flex items-center gap-2">
+          <div class="h-2 flex-1 bg-navy rounded-full overflow-hidden"><div class="h-full w-0 bg-amber-500 rounded-full"></div></div>
+          <span class="text-xs text-slate-500">0/5</span>
+        </div>
+      </div>
+
+      <!-- Area 6 -->
+      <div class="map-card rounded-2xl bg-gradient-to-br from-blue-900/60 to-navy-light p-6 border border-blue-700/30 cursor-pointer">
+        <div class="flex items-center gap-3 mb-3">
+          <span class="text-3xl">🔮</span>
+          <div>
+            <p class="text-xs text-blue-400 font-bold">AREA 6</p>
+            <h3 class="font-bold text-lg">祭壇エリア</h3>
+          </div>
+        </div>
+        <p class="text-sm text-slate-400">スキル・自動化</p>
+        <div class="mt-3 flex items-center gap-2">
+          <div class="h-2 flex-1 bg-navy rounded-full overflow-hidden"><div class="h-full w-0 bg-blue-500 rounded-full"></div></div>
+          <span class="text-xs text-slate-500">0/5</span>
+        </div>
+      </div>
+
+      <!-- Area 7 -->
+      <div class="map-card rounded-2xl bg-gradient-to-br from-zinc-800/60 to-navy-light p-6 border border-zinc-600/30 cursor-pointer">
+        <div class="flex items-center gap-3 mb-3">
+          <span class="text-3xl">🏰</span>
+          <div>
+            <p class="text-xs text-zinc-400 font-bold">AREA 7</p>
+            <h3 class="font-bold text-lg">砦エリア</h3>
+          </div>
+        </div>
+        <p class="text-sm text-slate-400">Agent Teams構築</p>
+        <div class="mt-3 flex items-center gap-2">
+          <div class="h-2 flex-1 bg-navy rounded-full overflow-hidden"><div class="h-full w-0 bg-zinc-500 rounded-full"></div></div>
+          <span class="text-xs text-slate-500">0/5</span>
+        </div>
+      </div>
+
+      <!-- Area 8 -->
+      <div class="map-card rounded-2xl bg-gradient-to-br from-red-900/60 to-navy-light p-6 border border-red-700/30 cursor-pointer">
+        <div class="flex items-center gap-3 mb-3">
+          <span class="text-3xl">🌋</span>
+          <div>
+            <p class="text-xs text-red-400 font-bold">AREA 8</p>
+            <h3 class="font-bold text-lg">火山エリア</h3>
+          </div>
+        </div>
+        <p class="text-sm text-slate-400">AI社員チーム構築</p>
+        <div class="mt-3 flex items-center gap-2">
+          <div class="h-2 flex-1 bg-navy rounded-full overflow-hidden"><div class="h-full w-0 bg-red-500 rounded-full"></div></div>
+          <span class="text-xs text-slate-500">0/5</span>
+        </div>
+      </div>
+
+      <!-- Area 9 -->
+      <div class="map-card rounded-2xl bg-gradient-to-br from-yellow-900/60 to-navy-light p-6 border border-yellow-600/30 cursor-pointer">
+        <div class="flex items-center gap-3 mb-3">
+          <span class="text-3xl">🏔️</span>
+          <div>
+            <p class="text-xs text-yellow-400 font-bold">AREA 9 - FINAL</p>
+            <h3 class="font-bold text-lg">頂上エリア</h3>
+          </div>
+        </div>
+        <p class="text-sm text-slate-400">組織完成・運用最適化</p>
+        <div class="mt-3 flex items-center gap-2">
+          <div class="h-2 flex-1 bg-navy rounded-full overflow-hidden"><div class="h-full w-0 bg-yellow-500 rounded-full"></div></div>
+          <span class="text-xs text-slate-500">0/5</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="max-w-4xl mx-auto px-4 py-20 text-center">
+    <div class="rounded-3xl bg-gradient-to-br from-jungle-dark/80 to-navy-light p-12 border border-jungle/30">
+      <p class="text-5xl mb-4 float">🦍</p>
+      <h2 class="text-2xl md:text-3xl font-bold mb-4">準備はいいか?</h2>
+      <p class="text-slate-400 mb-8">Claude Codeのターミナルで <code class="bg-navy px-2 py-1 rounded text-banana font-mono">/go</code> と入力して冒険を始めよう</p>
+      <div class="inline-block px-10 py-4 bg-gradient-to-r from-banana-dark to-banana text-navy font-black text-lg rounded-2xl pulse-glow">
+        /go で冒険開始!
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center py-8 text-slate-600 text-sm">
+    <p>DIGITAL GORILLA QUEST v2.0 &copy; 2026 Digital Gorilla Inc.</p>
+  </footer>
+
+</body>
+</html>

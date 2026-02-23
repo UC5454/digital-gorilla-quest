@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quest - DIGITAL GORILLA QUEST v2.0</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Noto+Sans+JP:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            jungle: { DEFAULT: '#065f46', light: '#0d9668', dark: '#034028' },
+            banana: { DEFAULT: '#f59e0b', light: '#fbbf24', dark: '#d97706' },
+            flame: { DEFAULT: '#dc2626', light: '#ef4444', dark: '#991b1b' },
+            navy: { DEFAULT: '#0f172a', light: '#1e293b', lighter: '#334155' },
+          },
+          fontFamily: { sans: ['Inter', 'Noto Sans JP', 'sans-serif'] },
+        }
+      }
+    }
+  </script>
+  <style>
+    @keyframes check-bounce { 0% { transform: scale(0); } 50% { transform: scale(1.2); } 100% { transform: scale(1); } }
+    .check-animate { animation: check-bounce 0.4s ease-out; }
+    .hint-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+    .hint-content.open { max-height: 200px; }
+    .copy-btn:active { transform: scale(0.95); }
+  </style>
+</head>
+<body class="bg-navy min-h-screen text-slate-100 font-sans">
+
+  <!-- Header -->
+  <header class="border-b border-navy-lighter/50 bg-navy-light/50 backdrop-blur-sm sticky top-0 z-50">
+    <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <span class="text-2xl">🦍</span>
+        <span class="font-bold text-banana">GORILLA QUEST</span>
+      </div>
+      <nav class="flex gap-4 text-sm">
+        <a href="index.html" class="text-slate-400 hover:text-white transition">Home</a>
+        <a href="status.html" class="text-slate-400 hover:text-white transition">Status</a>
+        <a href="quest.html" class="text-banana font-bold">Quest</a>
+        <a href="boss.html" class="text-slate-400 hover:text-white transition">Boss</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-4 py-8">
+
+    <!-- Quest Header -->
+    <div class="rounded-2xl bg-gradient-to-r from-emerald-900/60 to-navy-light border border-emerald-700/30 p-6 mb-8">
+      <div class="flex items-center gap-2 mb-2">
+        <span class="bg-emerald-600 text-white text-xs font-bold px-3 py-1 rounded-full">AREA 2</span>
+        <span class="text-emerald-400 text-xs">森林エリア</span>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="text-4xl">🌲</span>
+        <div>
+          <h1 class="text-2xl md:text-3xl font-black">Quest 2-3: Git初期化マスター</h1>
+          <p class="text-slate-400 text-sm mt-1">Gitリポジトリを初期化し、初めてのコミットを行おう</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-4 mt-4">
+        <span class="text-xs text-slate-400">報酬:</span>
+        <span class="text-banana font-bold text-sm">+80 BP</span>
+        <span class="bg-navy/50 text-xs px-2 py-1 rounded-full text-slate-300">難易度: ★★☆</span>
+      </div>
+    </div>
+
+    <!-- Quest Objectives -->
+    <div class="rounded-2xl bg-navy-light border border-navy-lighter/50 p-6 mb-6">
+      <h2 class="font-bold text-lg mb-4 flex items-center gap-2">
+        <span class="w-6 h-6 bg-banana/20 rounded-full flex items-center justify-center text-banana text-sm">&#10003;</span>
+        目標チェックリスト
+      </h2>
+      <div class="space-y-3">
+        <label class="flex items-center gap-3 bg-jungle/10 border border-jungle/20 rounded-xl p-4 cursor-pointer">
+          <div class="w-6 h-6 rounded-full bg-jungle flex items-center justify-center text-white text-xs check-animate">&#10003;</div>
+          <div class="flex-1">
+            <p class="font-semibold line-through text-slate-500">新しいプロジェクトディレクトリを作成する</p>
+          </div>
+          <span class="text-xs text-jungle-light font-bold">DONE</span>
+        </label>
+        <label class="flex items-center gap-3 bg-banana/5 border border-banana/20 rounded-xl p-4 cursor-pointer">
+          <div class="w-6 h-6 rounded-full border-2 border-banana"></div>
+          <div class="flex-1">
+            <p class="font-semibold">git init でリポジトリを初期化する</p>
+            <p class="text-xs text-slate-400 mt-1">Claude Codeにgit initを実行させてみよう</p>
+          </div>
+          <span class="text-xs text-banana font-bold">IN PROGRESS</span>
+        </label>
+        <label class="flex items-center gap-3 bg-navy/40 rounded-xl p-4 cursor-pointer opacity-60">
+          <div class="w-6 h-6 rounded-full border-2 border-navy-lighter"></div>
+          <div class="flex-1">
+            <p class="font-semibold">README.mdを作成してステージングする</p>
+          </div>
+          <span class="text-xs text-slate-500">TODO</span>
+        </label>
+        <label class="flex items-center gap-3 bg-navy/40 rounded-xl p-4 cursor-pointer opacity-60">
+          <div class="w-6 h-6 rounded-full border-2 border-navy-lighter"></div>
+          <div class="flex-1">
+            <p class="font-semibold">最初のコミットを作成する</p>
+          </div>
+          <span class="text-xs text-slate-500">TODO</span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Copy Paste Section -->
+    <div class="rounded-2xl bg-navy-light border border-navy-lighter/50 p-6 mb-6">
+      <h2 class="font-bold text-lg mb-4 flex items-center gap-2">
+        <span class="text-xl">📋</span>
+        コピペセクション
+      </h2>
+      <p class="text-sm text-slate-400 mb-4">以下のテキストをClaude Codeにコピペして実行しよう</p>
+
+      <div class="space-y-4">
+        <div class="bg-navy rounded-xl p-4 relative group">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-xs text-slate-500 font-mono">Step 1: リポジトリ初期化</span>
+            <button onclick="copyToClipboard(this, 'step1')" class="copy-btn bg-navy-lighter hover:bg-banana/20 text-xs px-3 py-1 rounded-lg transition flex items-center gap-1">
+              <span>&#128203;</span> Copy
+            </button>
+          </div>
+          <pre id="step1" class="text-sm text-green-400 font-mono overflow-x-auto">新しいプロジェクトフォルダ「my-first-project」を作成して、gitリポジトリとして初期化してください</pre>
+        </div>
+
+        <div class="bg-navy rounded-xl p-4 relative group">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-xs text-slate-500 font-mono">Step 2: README作成</span>
+            <button onclick="copyToClipboard(this, 'step2')" class="copy-btn bg-navy-lighter hover:bg-banana/20 text-xs px-3 py-1 rounded-lg transition flex items-center gap-1">
+              <span>&#128203;</span> Copy
+            </button>
+          </div>
+          <pre id="step2" class="text-sm text-green-400 font-mono overflow-x-auto">README.mdを作成して、プロジェクト名と説明を書いてください。その後git addでステージングしてください</pre>
+        </div>
+
+        <div class="bg-navy rounded-xl p-4 relative group">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-xs text-slate-500 font-mono">Step 3: 初コミット</span>
+            <button onclick="copyToClipboard(this, 'step3')" class="copy-btn bg-navy-lighter hover:bg-banana/20 text-xs px-3 py-1 rounded-lg transition flex items-center gap-1">
+              <span>&#128203;</span> Copy
+            </button>
+          </div>
+          <pre id="step3" class="text-sm text-green-400 font-mono overflow-x-auto">ステージングした変更をコミットしてください。コミットメッセージは「Initial commit: プロジェクト開始」にしてください</pre>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hints -->
+    <div class="rounded-2xl bg-navy-light border border-navy-lighter/50 p-6 mb-6">
+      <h2 class="font-bold text-lg mb-4 flex items-center gap-2">
+        <span class="text-xl">💡</span>
+        ヒント
+      </h2>
+      <div class="space-y-3">
+        <div class="bg-navy/60 rounded-xl overflow-hidden">
+          <button onclick="toggleHint('hint1')" class="w-full text-left p-4 flex items-center justify-between hover:bg-navy/80 transition">
+            <span class="text-sm font-semibold">ヒント 1: git initって何?</span>
+            <span class="text-slate-500 text-xs" id="hint1-toggle">クリックで表示</span>
+          </button>
+          <div id="hint1" class="hint-content px-4 pb-4">
+            <p class="text-sm text-slate-400">git initはフォルダをGitリポジトリに変換するコマンドです。これにより、そのフォルダ内のファイル変更を追跡できるようになります。Claude Codeに「git initして」と言うだけでOKです。</p>
+          </div>
+        </div>
+        <div class="bg-navy/60 rounded-xl overflow-hidden">
+          <button onclick="toggleHint('hint2')" class="w-full text-left p-4 flex items-center justify-between hover:bg-navy/80 transition">
+            <span class="text-sm font-semibold">ヒント 2: ステージングとコミットの違い</span>
+            <span class="text-slate-500 text-xs" id="hint2-toggle">クリックで表示</span>
+          </button>
+          <div id="hint2" class="hint-content px-4 pb-4">
+            <p class="text-sm text-slate-400">ステージング（git add）は「次のコミットに含める変更を選ぶ」こと。コミット（git commit）は「選んだ変更を確定する」ことです。お買い物カートに入れる → レジで購入、のイメージです。</p>
+          </div>
+        </div>
+        <div class="bg-navy/60 rounded-xl overflow-hidden">
+          <button onclick="toggleHint('hint3')" class="w-full text-left p-4 flex items-center justify-between hover:bg-navy/80 transition">
+            <span class="text-sm font-semibold">ヒント 3: うまくいかない時は?</span>
+            <span class="text-slate-500 text-xs" id="hint3-toggle">クリックで表示</span>
+          </button>
+          <div id="hint3" class="hint-content px-4 pb-4">
+            <p class="text-sm text-slate-400">Claude Codeに「git statusを見せて」と言ってみましょう。現在の状態が分かります。エラーが出たらそのままClaude Codeに「このエラーを解決して」と伝えてOKです。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Success Criteria -->
+    <div class="rounded-2xl bg-gradient-to-r from-jungle-dark/40 to-navy-light border border-jungle/30 p-6">
+      <h2 class="font-bold text-lg mb-4 flex items-center gap-2">
+        <span class="text-xl">🎯</span>
+        成功条件
+      </h2>
+      <ul class="space-y-2">
+        <li class="flex items-center gap-3 text-sm">
+          <span class="w-5 h-5 rounded-full bg-jungle/30 border border-jungle flex items-center justify-center text-xs text-jungle-light">1</span>
+          <span>.gitフォルダが作成されている</span>
+        </li>
+        <li class="flex items-center gap-3 text-sm">
+          <span class="w-5 h-5 rounded-full bg-jungle/30 border border-jungle flex items-center justify-center text-xs text-jungle-light">2</span>
+          <span>README.mdが存在する</span>
+        </li>
+        <li class="flex items-center gap-3 text-sm">
+          <span class="w-5 h-5 rounded-full bg-jungle/30 border border-jungle flex items-center justify-center text-xs text-jungle-light">3</span>
+          <span>git logで最低1つのコミットが確認できる</span>
+        </li>
+        <li class="flex items-center gap-3 text-sm">
+          <span class="w-5 h-5 rounded-full bg-jungle/30 border border-jungle flex items-center justify-center text-xs text-jungle-light">4</span>
+          <span>git statusで「nothing to commit」と表示される</span>
+        </li>
+      </ul>
+      <div class="mt-6 text-center">
+        <button class="px-8 py-3 bg-gradient-to-r from-jungle to-jungle-light text-white font-bold rounded-xl hover:scale-105 transition-transform">
+          /check で成功判定!
+        </button>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="text-center py-8 text-slate-600 text-sm">
+    <p>DIGITAL GORILLA QUEST v2.0</p>
+  </footer>
+
+  <script>
+    function toggleHint(id) {
+      const el = document.getElementById(id);
+      const toggle = document.getElementById(id + '-toggle');
+      el.classList.toggle('open');
+      toggle.textContent = el.classList.contains('open') ? 'クリックで閉じる' : 'クリックで表示';
+    }
+
+    function copyToClipboard(btn, id) {
+      const text = document.getElementById(id).textContent;
+      navigator.clipboard.writeText(text).then(() => {
+        const original = btn.innerHTML;
+        btn.innerHTML = '<span>&#10003;</span> Copied!';
+        btn.classList.add('text-banana');
+        setTimeout(() => {
+          btn.innerHTML = original;
+          btn.classList.remove('text-banana');
+        }, 2000);
+      });
+    }
+  </script>
+
+</body>
+</html>

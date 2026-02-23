@@ -1,0 +1,12 @@
+# AI社員チーム名簿テンプレート
+# エリア7（砦）のクエストで、ここにAI社員の情報を記入していきます
+
+team_name: "my-first-team"
+members: []
+# 例:
+#  - name: "アシスタント"
+#    role: "秘書"
+#    directory: "assistant"
+#    skills:
+#      - メール管理
+#      - スケジュール管理

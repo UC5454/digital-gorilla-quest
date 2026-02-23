@@ -6,9 +6,35 @@
 
 1. `gorilla_data/progress.json` を読み込む
 2. 現在のクエスト（current）を特定
-3. クエストファイルから成功条件を読み込む
+3. `quest_file_map` からクエストファイルパスを取得し、成功条件を読み込む
 4. ユーザーに確認（実際に条件を満たしたか）
 5. 完了判定・BP付与・レベルアップ処理
+
+## BP計算
+
+クエストファイルの `## 🍌 報酬` セクションから `base_bp` と `first_clear_bonus` を読み取る。
+
+- 初回クリア: base_bp + first_clear_bonus
+- 再クリア: base_bp のみ
+
+## レベルアップ判定
+
+progress.json の `level_thresholds` を参照し、現在のBP合計がどのレベルに該当するかを判定。
+レベル1〜100まで定義済み。
+
+## 称号判定
+
+progress.json の `title_levels` を参照し、レベルに応じた称号を判定。
+
+| 称号 | レベル範囲 |
+|------|-----------|
+| 子ゴリラ | 1-8 |
+| 若ゴリラ | 9-20 |
+| 成熟ゴリラ | 21-35 |
+| ブラックバック | 36-50 |
+| シルバーバック | 51-70 |
+| ジャングルの王 | 71-80 |
+| 伝説のキングコング | 81-100 |
 
 ## 成功条件の確認方法
 
@@ -63,32 +89,20 @@
   [バッジの説明]
 ```
 
-### 初回クリアボーナス
-初めてクリアするクエストには +20% のボーナスBPを付与。
-
 ## progress.json更新
 
-- banana_points を加算
-- power_level を更新（閾値を超えた場合）
-- title を更新（レベルに応じて）
-- quests.completed に追加
-- quests.current を null に
-- 該当エリアの quests_completed をインクリメント
-- badges に新規バッジを追加（条件達成時）
-- エリア全クリア時は boss_available を true に
+- `banana_points` を加算
+- `power_level` を更新（`level_thresholds` で閾値を超えた場合）
+- `title` を更新（`title_levels` でレベルに応じて）
+- `quests.completed` に追加
+- `quests.current` を null に
+- 該当エリアの `quests_completed` をインクリメント
+- `badges` に新規バッジを追加（`badges_definition` で条件達成時）
+- エリア全クリア時は `boss_available` を true に
 
 ## バッジ付与条件
 
-| バッジ | 条件 |
-|--------|------|
-| 第一歩 | Q1クリア |
-| 草原の覇者 | 草原ボス撃破 |
-| 森の支配者 | 森林ボス撃破 |
-| 山の王者 | 山岳ボス撃破 |
-| 洞窟の主 | 洞窟ボス撃破 |
-| ジャングルの王 | 全ボス撃破 |
-| CLI使い | Q6クリア |
-| 記憶の番人 | Q12クリア |
-| 技の達人 | Q18クリア |
-| 連鎖の魔術師 | Q24クリア |
-| 伝説のゴリラ | Q30クリア |
+progress.json の `badges_definition` を参照。全19バッジ定義済み。
+主な条件：
+- Q1, Q6, Q12, Q18, Q24, Q30, Q36, Q42, Q48, Q54 クリア時
+- 各エリアボス撃破時

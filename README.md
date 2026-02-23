@@ -1,32 +1,37 @@
-# 🦍 Digital Gorilla Quest - 最強ゴリラへの道
+# 🦍 Digital Gorilla Quest v2.0 - 最強ゴリラへの道
 
-株式会社デジタルゴリラ社員向けの **RPG型 Claude Code 学習教材** です。
+RPG型 Claude Code 学習教材。完全初心者が10時間でAI社員を1体作って動かせるようになる。
 
 ## 🌴 概要
 
 ゴリラがどんどん強くなっていく成長物語として、Claude Code の全機能を習得できます。
 
-- **5つのテリトリー** を制覇
-- **30以上のクエスト** をクリア
-- **各エリアのボス** を撃破
-- 最終目標は **「ジャングルの王」** になること！
+- **9つのエリア** を制覇
+- **54のクエスト** をクリア
+- **9体のボス** を撃破
+- **AI社員を1体構築** して動かす
+- 最終目標は **「伝説のキングコング」** になること！
 
 ## 🗺️ エリアマップ
 
-| エリア | テーマ | 学習内容 |
-|--------|--------|----------|
-| 🌿 草原 | はじまりの地 | 基本操作 |
-| 🌲 森林 | 記憶の森 | CLAUDE.md |
-| ⛰️ 山岳 | 技の峰 | Skills |
-| 🕳️ 洞窟 | 連鎖の洞窟 | Hooks |
-| 👑 頂上 | 王の座 | ベストプラクティス |
+| # | エリア | テーマ | 学習内容 |
+|---|--------|--------|----------|
+| 1 | 🌿 草原 | はじまりの地 | 基本4ツール（Read/Write/Edit/Bash） |
+| 2 | 🌲 森林 | 記憶の森 | CLAUDE.md |
+| 3 | ⛰️ 山岳 | 技の峰 | Skills |
+| 4 | 🕳️ 洞窟 | 連鎖の洞窟 | Hooks |
+| 5 | 🏛️ 神殿 | 接続の神殿 | MCP |
+| 6 | 🔮 祭壇 | 魂の祭壇 | AI社員設計 |
+| 7 | 🏰 砦 | 統率の砦 | チーム連携 |
+| 8 | 🌋 火山 | 覚醒の火山 | Agent Teams |
+| 9 | 👑 頂上 | 王の座 | 最終プロジェクト |
 
 ## 🚀 始め方
 
 ### 1. リポジトリをクローン
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/digital-gorilla-quest.git
+git clone https://github.com/UC5454/digital-gorilla-quest.git
 cd digital-gorilla-quest
 ```
 
@@ -52,42 +57,38 @@ claude
 |----------|------|
 | **`/go`** | **次のクエストを表示（初回はゲーム開始）** |
 | `/go done` or 「できた」 | クエスト完了 → 自動で次へ |
-| `/go hint` | ヒント表示 |
+| `/go hint` | ヒント表示（3段階） |
 | `/go status` | ステータス確認 |
 | `/go boss` | ボス戦開始 |
-
-### レガシーコマンド（引き続き使用可能）
-
-| コマンド | 機能 |
-|----------|------|
-| `/jungle` | ゲーム開始・進行案内 |
-| `/quest [番号]` | クエスト開始 |
-| `/banana` | クエスト完了判定 |
-| `/status` | ステータス確認 |
-| `/hint` | ヒント表示 |
-| `/boss` | ボス戦開始 |
+| `/go [番号]` | 指定クエストへ移動 |
 
 ## 📁 ディレクトリ構成
 
 ```
 .
 ├── CLAUDE.md                 # ゲーム設定
+├── .mcp.json                 # MCP設定（エリア5で使用）
 ├── gorilla_data/             # プレイヤーデータ
 ├── quests/                   # クエストファイル
-│   ├── grassland/            # 草原エリア
-│   ├── forest/               # 森林エリア
-│   ├── mountain/             # 山岳エリア
-│   ├── cave/                 # 洞窟エリア
-│   └── summit/               # 頂上エリア
-├── docs/                     # リファレンス資料
+│   ├── grassland/            # 🌿 草原エリア（Q1-Q6）
+│   ├── forest/               # 🌲 森林エリア（Q7-Q12）
+│   ├── mountain/             # ⛰️ 山岳エリア（Q13-Q18）
+│   ├── cave/                 # 🕳️ 洞窟エリア（Q19-Q24）
+│   ├── temple/               # 🏛️ 神殿エリア（Q25-Q30）
+│   ├── altar/                # 🔮 祭壇エリア（Q31-Q36）
+│   ├── fortress/             # 🏰 砦エリア（Q37-Q42）
+│   ├── volcano/              # 🌋 火山エリア（Q43-Q48）
+│   └── summit/               # 👑 頂上エリア（Q49-Q54）
+├── docs/reference/           # リファレンス資料
 ├── practice/                 # 練習用フォルダ
+├── my-first-ai/              # AI社員テンプレート（エリア6以降）
 └── .claude/skills/           # ゲームスキル
 ```
 
 ## 📚 前提条件
 
-- [Claude Code](https://github.com/anthropics/claude-code) がインストール済み
-- Anthropic API キーが設定済み
+- [Claude Code](https://docs.anthropic.com/en/docs/claude-code) のMax/Proプラン契約済み
+- `claude` コマンドで起動できる状態
 
 ## 🦍 ウホッ！頑張れ！
 

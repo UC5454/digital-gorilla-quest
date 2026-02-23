@@ -6,8 +6,9 @@
 
 1. `gorilla_data/progress.json` を読み込む
 2. 現在のクエスト（current）を特定
-3. クエストファイルからヒントセクションを読み込む
-4. 段階的にヒントを表示
+3. `quest_file_map` からクエストファイルパスを取得
+4. クエストファイルからヒントセクションを読み込む
+5. 段階的にヒントを表示
 
 ## ヒントの段階
 
@@ -86,7 +87,7 @@ progress.jsonにヒントカウントを保持し、同じクエストで /hint 
 
   ウホ？何について聞きたいんだ？
 
-  まずは /quest [番号] でクエストを
+  まずは /go でクエストを
   開始してから来てくれ！
 
 ════════════════════════════════
@@ -98,8 +99,12 @@ progress.jsonにヒントカウントを保持し、同じクエストで /hint 
 
 | エリア | リファレンス |
 |--------|-------------|
-| 草原 | docs/reference/01_basics.md |
-| 森林 | docs/reference/02_claude_md.md |
-| 山岳 | docs/reference/03_skills.md |
-| 洞窟 | docs/reference/04_hooks.md |
-| 頂上 | docs/reference/05_best_practices.md |
+| grassland | docs/reference/01_basics.md |
+| forest | docs/reference/02_claude_md.md |
+| mountain | docs/reference/03_skills.md |
+| cave | docs/reference/04_hooks.md |
+| temple | docs/reference/06_mcp.md |
+| altar | docs/reference/07_ai_employee_design.md |
+| fortress | docs/reference/08_team_coordination.md |
+| volcano | docs/reference/09_agent_teams.md |
+| summit | docs/reference/05_best_practices.md |

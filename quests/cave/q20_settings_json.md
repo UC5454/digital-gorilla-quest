@@ -1,65 +1,96 @@
-# Quest 20: 魔法陣を描く
+# Quest 20: 設定の書
 
-## 導入テキスト
+## 🦍 導入
 
-ウホッ！連鎖の仕組みを理解したな。
+ウホッ！Hooksの仕組みはわかったか？
+だがな、魔法を唱えるには「魔導書」が必要だ。
+Hooksの世界では、それが `settings.json` という設定ファイルだ！
+この書に呪文を刻むことで、Hooksが発動するようになる。
+さあ、設定の書を読み解いてみろ！ウホホ！
 
-次は「魔法陣」を描く。
-Hooks は settings.json というファイルに設定する。
-これがお前の魔法陣だ。
+## 🎯 目標
 
-## 目標
+- [ ] settings.jsonの構造を理解する
+- [ ] hooks設定の書き方（event / matcher / command）を把握する
+- [ ] practice/cave/ にsettings.jsonを作成する
 
-- settings.json の構造を理解する
-- 設定ファイルの場所を把握する
+## 📋 やること
 
-## 成功条件
+1. docs/reference/04_hooks.md のsettings.json解説部分を確認する
+2. `practice/cave/.claude/settings.json` を作成する
+3. PostToolUse（Write）でecho通知するHookを設定する
 
-- [ ] settings.json の基本構造を理解した
-- [ ] グローバル（~/.claude/settings.json）とローカル（.claude/settings.json）の違いを理解した
+## 📎 コピペ
 
-## 報酬
+```
+practice/cave/.claude/settings.json を以下の内容で作成して：
 
-- base_bp: 550
-- first_clear_bonus: 110
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '📝 ファイルが作成されました！'"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
 
-## ヒント
+## ✅ 成功条件
+
+- [ ] `practice/cave/.claude/settings.json` が存在する
+- [ ] PostToolUse イベントにWriteのmatcherが設定されている
+- [ ] commandハンドラーでecho通知が設定されている
+
+## 📦 成果物
+
+- `practice/cave/.claude/settings.json`（Hook設定ファイル）
+
+## 🍌 報酬
+
+- base_bp: 160
+- first_clear_bonus: 32
+
+## 💡 ヒント
 
 ### hint_1
-settings.json の場所：
-- グローバル: ~/.claude/settings.json
-- ローカル: プロジェクト/.claude/settings.json
-
-ローカルが優先される。
+settings.jsonは `.claude/` フォルダの中に置くぞ。プロジェクトのルートではなく、`.claude/settings.json` のパスだ！
 
 ### hint_2
-基本構造：
+settings.jsonの構造:
 ```json
 {
   "hooks": {
-    "PreToolUse": [...],
-    "PostToolUse": [...],
-    "Notification": [...],
-    "Stop": [...]
+    "イベント名": [
+      {
+        "matcher": "対象ツール名",
+        "hooks": [
+          {
+            "type": "ハンドラー種別",
+            "command": "実行するコマンド"
+          }
+        ]
+      }
+    ]
   }
 }
 ```
 
 ### hint_3
-practice/hook-cave/.claude/settings.json を作成してみろ：
+完全なファイルパスは `practice/cave/.claude/settings.json`。`.claude` ディレクトリがなければ作成する必要がある。コピペのJSONをそのまま使えばOK！
 
-```json
-{
-  "hooks": {
-    "PreToolUse": [],
-    "PostToolUse": []
-  }
-}
-```
+## 📚 学習ポイント
 
-これが空の設定ファイルだ。
-ここにフックを追加していく。
+- settings.jsonはHooksの設定ファイル。`.claude/` ディレクトリに配置する
+- 構造: `hooks` > `イベント名` > 配列 > `matcher`（対象）+ `hooks`（処理内容）
+- matcherでどのツールに反応するかを指定し、hooksで実行する処理を定義する
 
-## 関連リファレンス
+## 📖 関連リファレンス
 
 docs/reference/04_hooks.md
